@@ -1,4 +1,7 @@
 {
+  "engine": {
+    "node": "v22.17.0"
+  },
   "name": "backend",
   "version": "1.0.0",
   "description": "",
