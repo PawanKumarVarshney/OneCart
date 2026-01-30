@@ -1,10 +1,10 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import connectDb from './config/db.js'
 import cookieParser from 'cookie-parser'
+import cors from "cors"
+import connectDb from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
 dotenv.config()
-import cors from "cors"
 import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import cartRoutes from './routes/cartRoutes.js'
@@ -29,10 +29,14 @@ app.use("/api/order",orderRoutes)
 
 
 
+connectDb().then(()=>{
+app.listen(PORT,()=>{
+    console.log(`Server running on port ${PORT}`);
+  });
+});
 
-app.listen(port,()=>{
-    console.log("Hello From Server")
-    connectDb()
-})
+
+    
+
 
 
