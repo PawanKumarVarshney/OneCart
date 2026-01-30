@@ -10,16 +10,21 @@ import productRoutes from './routes/productRoutes.js'
 import cartRoutes from './routes/cartRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 
-let port = process.env.PORT || 6000
+let PORT = process.env.PORT || 6000
 
 let app = express()
 
 app.use(express.json())
 app.use(cookieParser())
+
 app.use(cors({
- origin:[https://onecart1-frontend.onrender.com, https://onecart-admin-8rbr.onrender.com],
- credentials:true
-}))
+  origin: [
+    "https://onecart1-frontend.onrender.com",
+    "https://onecart-admin-8rbr.onrender.com"
+  ],
+  credentials: true
+}));
+
 
 app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoutes)
